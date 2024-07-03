@@ -48,6 +48,6 @@ for forecast in weather_data["list"]:
 
         # print(int(dt.datetime.now().timestamp()))
 
-payload = {"content": message + "\n----"}
+payload = {"content": message + "----"}
 
 res = requests.post(discord_channel_url, payload, headers=headers)
