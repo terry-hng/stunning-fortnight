@@ -28,7 +28,7 @@ weather_data = response.json()
 message = ""
 
 for forecast in weather_data["list"]:
-    if forecast["weather"][0]["id"] < 700 and forecast["dt"] > int(
+    if forecast["dt"] > int(
         dt.datetime.now().timestamp()
     ):
         weather_description = forecast["weather"][0]["description"].capitalize()
