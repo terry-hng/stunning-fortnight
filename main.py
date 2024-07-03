@@ -33,7 +33,7 @@ for forecast in weather_data["list"]:
     ):
         weather_description = forecast["weather"][0]["description"].capitalize()
 
-        temperature = forecast["main"]["temp"]
+        temperature = int(forecast["main"]["temp"])
 
         time_of_forcast = str(
             dt.datetime.fromtimestamp(forecast["dt"], tz=dt.timezone.utc).astimezone(
