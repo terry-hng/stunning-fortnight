@@ -2,7 +2,7 @@ name: Daily Run
 
 on:
   schedule:
-    - cron: '50 11 * * *'  # Runs at 11:50 UTC which is 18:50 Vietnam time (UTC+7)
+    - cron: '56 11 * * *' 
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
