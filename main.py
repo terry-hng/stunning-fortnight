@@ -25,14 +25,14 @@ weather_icons_to_emoji = {
 
 discord_channel_url = "https://discord.com/api/v9/channels/1258018140307066992/messages"
 headers = {
-    "Authorization": os.environ.get(DISCORD_AUTH_KEY)
+    "Authorization": os.environ.get("DISCORD_AUTH_KEY")
 }  # auth key needed to send messages through discord
 
 # for OpenWeather API
 parameters = {
     "lat": 10.823099,
     "lon": 106.629662,
-    "appid": os.environ.get(OPENWEATHER_API_KEY),
+    "appid": os.environ.get("OPENWEATHER_API_KEY"),
     "cnt": 6,
     "units": "metric",
     # "lang": "vi",
