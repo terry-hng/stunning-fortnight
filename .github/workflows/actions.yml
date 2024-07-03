@@ -2,9 +2,8 @@ name: Daily Run
 
 on:
   schedule:
-    - cron: '0 0 * * *' 
-  workflow_dispatch:  # Allows manual triggering of the workflow
-
+    - cron: '0 0 * * *'
+    
 jobs:
   build:
     runs-on: ubuntu-latest
