@@ -4,14 +4,14 @@ import os
 
 discord_channel_url = "https://discord.com/api/v9/channels/1258018140307066992/messages"
 headers = {
-    "Authorization": os.getenv("DISCORD_AUTH_KEY")
+    "Authorization": os.environ.get("DISCORD_AUTH_KEY")
 }  # auth key needed to send messages through discord
 
 # for OpenWeather API
 parameters = {
     "lat": 10.823099,
     "lon": 106.629662,
-    "appid": os.getenv("OPENWEATHER_API_KEY"),
+    "appid": os.environ.get("OPENWEATHER_API_KEY"),
     "cnt": 8,
     "units": "metric",
     "lang": "vi",
