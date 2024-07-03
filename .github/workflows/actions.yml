@@ -3,6 +3,7 @@ name: Daily Run
 on:
   schedule:
     - cron: '0 23 * * *'
+  workflow_dispatch:  # Allows manual triggering of the workflow
     
 jobs:
   build:
