@@ -61,7 +61,8 @@ for forecast in weather_data["list"]:
                 dt.datetime.fromtimestamp(
                     forecast["dt"], tz=dt.timezone.utc
                 ).astimezone(dt.timezone(dt.timedelta(hours=7)))
-            ) # example return: "2024-07-19 15:00:00+07:00", that's why there are 2 split() functions below to extract "15:00" from the example str
+            ) # example return: "2024-07-19 15:00:00+07:00"
+              # that's why there are 2 split() functions below to extract "15:00" from the example str
             .split(" ")[1]
             .split("+")[0][:-3]
         )
