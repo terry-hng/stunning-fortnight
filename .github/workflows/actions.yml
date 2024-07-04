@@ -2,7 +2,7 @@ name: Daily Run
 
 on:
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '0 22 * * *'
   workflow_dispatch:  # Allows manual triggering of the workflow
     
 jobs:
