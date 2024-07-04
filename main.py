@@ -1,6 +1,7 @@
 import requests
 import datetime as dt
 import os
+import pytz
 
 weather_icons_to_emoji = {
     "01d": "☀️",  # clear sky day
@@ -49,7 +50,7 @@ weather_data = response.json()
 # with open("data.json", "w") as file:
 #     file.write(str(weather_data).replace("'", '"'))
 
-message = f"> Weather forecast for {(dt.datetime.now() + dt.timedelta(days=1)).strftime("%A, %B %d")}\n\n"
+message = f"> Weather forecast for {dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%A, %B %d")}\n\n"
 
 for forecast in weather_data["list"]:
     if forecast["dt"] > int(dt.datetime.now().timestamp()):
