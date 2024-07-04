@@ -27,16 +27,16 @@ weather_icons_to_emoji = {
 discord_channel_url = "https://discord.com/api/v9/channels/1258018140307066992/messages"
 headers = {
     "Authorization": os.environ.get("DISCORD_AUTH_KEY")
-}  # auth key needed to send messages through discord
+}  # auth key needed to send messages from a dummy discord account, DON'T USE MAIN ACCOUNT
 
-# for OpenWeather API
+# params for OpenWeather API
 parameters = {
     "lat": 10.823099,
     "lon": 106.629662,
     "appid": os.environ.get("OPENWEATHER_API_KEY"),
     "cnt": 6,
     "units": "metric",
-    # "lang": "vi",
+    # "lang": "vi", # uncomment this line if you want the data in Vietnamese
 }
 
 response = requests.get(
@@ -47,13 +47,11 @@ response = requests.get(
 response.raise_for_status()
 weather_data = response.json()
 
-# with open("data.json", "w") as file:
-#     file.write(str(weather_data).replace("'", '"'))
-
 message = f"> Weather forecast for {dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%A, %B %d")}\n\n"
 
 for forecast in weather_data["list"]:
     if forecast["dt"] > int(dt.datetime.now().timestamp()):
+        
         weather_description = forecast["weather"][0]["description"].capitalize()
 
         temperature = int(forecast["main"]["temp"])
@@ -73,9 +71,6 @@ for forecast in weather_data["list"]:
         message += (
             f"- {time_of_forcast}: **{weather_description}**  {weather_emoji}\n\t\t\t\tTemp: {temperature}°C\n\n"
         )
-        # break
-
-        # print(int(dt.datetime.now().timestamp()))
 
 payload = {"content": message + "---------------------------\n"}
 
