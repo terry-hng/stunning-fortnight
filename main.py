@@ -49,7 +49,7 @@ weather_data = response.json()
 # with open("data.json", "w") as file:
 #     file.write(str(weather_data).replace("'", '"'))
 
-message = f"> Weather forecast for {dt.datetime.now().strftime("%A, %B %d")}\n\n"
+message = f"> Weather forecast for {(dt.datetime.now() + dt.timedelta(days=1)).strftime("%A, %B %d")}\n\n"
 
 for forecast in weather_data["list"]:
     if forecast["dt"] > int(dt.datetime.now().timestamp()):
