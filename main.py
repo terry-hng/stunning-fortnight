@@ -47,7 +47,7 @@ response = requests.get(
 response.raise_for_status()
 weather_data = response.json()
 
-message = f"> **Weather forecast for {(dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')) + dt.timedelta(days=1)).strftime("%A, %B %d")}**\n\n"
+message = f"> **Weather forecast for {dt.datetime.now(pytz.timezone('Asia/Ho_Chi_Minh')).strftime("%A, %B %d")}**\n\n"
 
 for forecast in weather_data["list"]:
     if forecast["dt"] > int(dt.datetime.now().timestamp()):
