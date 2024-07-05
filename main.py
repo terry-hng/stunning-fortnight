@@ -36,7 +36,7 @@ parameters = {
     "appid": os.environ.get("OPENWEATHER_API_KEY"),
     "cnt": 6,
     "units": "metric",
-    # "lang": "vi", # uncomment this line if you want the data in Vietnamese
+    "lang": "vi", # uncomment this line if you want the data in Vietnamese
 }
 
 response = requests.get(
