@@ -70,9 +70,9 @@ for forecast in weather_data["list"]:
         weather_emoji = weather_icons_to_emoji[forecast["weather"][0]["icon"]]
 
         message += (
-            f"- {time_of_forcast}: **{weather_description}**  {weather_emoji}\n\t\t\t\tTemp: {temperature}°C\n\n"
+            f"- {time_of_forcast}: {weather_emoji}  **{weather_description}**\n\t\t\t\tTemp: {temperature}°C\n\n"
         )
 
-payload = {"content": message + "------------------------------------------\n"}
+payload = {"content": message}
 
 res = requests.post(discord_channel_url, payload, headers=headers)
